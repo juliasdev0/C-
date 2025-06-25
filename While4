@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Concurrent;
+using System.Globalization;
+using System.Net.Mail;
+using System.Numerics;
+
+namespace Course
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int n = int.Parse(Console.ReadLine());
+            int a = 0;
+            int g = 0;
+            int d = 0;
+
+            while (n!=4)
+            {
+                if (n == 1)
+                {
+                    a = a + 1;
+                }
+                else if (n == 2)
+                {
+                    g = g + 1;
+                }
+                else if (n == 3)
+                {
+                    d = d + 1;
+                }
+                else
+                {
+                }
+                n = int.Parse(Console.ReadLine());
+
+            }
+            Console.WriteLine("MUITO OBRIGADO");
+            Console.WriteLine("ÁLCOOL: " + a);
+            Console.WriteLine("GASOLINA: " + g);
+            Console.WriteLine("DIESEL: " + d);
+
+        }
+    }
+}

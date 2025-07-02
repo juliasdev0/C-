@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Class_Retangulo
+{
+    internal class Retangulo
+    {
+        public double Largura;
+        public double Altura;
+
+        public double Area()
+        {
+             return Largura * Altura;
+        }
+
+        public double Perimetro()
+        {
+            return 2 * (Largura + Altura);
+        }
+       
+        public double Diagonal()
+        {
+            return Math.Sqrt(Math.Pow(Largura, 2) + Math.Pow(Altura, 2));
+        }
+    }  
+}
+
+using System;
+using System.Globalization;
+
+namespace Class_Retangulo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Retangulo r = new Retangulo();
+
+            Console.WriteLine("Entre com a largura e altura do retângulo:");
+            r.Largura = double.Parse(Console.ReadLine(), CultureInfo .InvariantCulture);
+            r.Altura = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("AREA= " + r.Area().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("PERIMETRO= " + r.Perimetro().ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine("DIAGONAL= " + r.Diagonal().ToString("F2", CultureInfo.InvariantCulture));
+        }
+    }
+}

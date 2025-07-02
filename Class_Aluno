@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Class_Aluno
+{
+    internal class Aluno
+    {
+        public string Nome;
+        public double Nota1;
+        public double Nota2;
+        public double Nota3;
+
+        public double NotaFinal()
+        {
+            return Nota1 + Nota2 + Nota3;
+        }
+
+        public bool Aprovado()
+        {
+            if (NotaFinal() >= 60.00)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public double NotaRestante()
+        {
+            if (Aprovado())
+            {
+                return 0.00;
+            }
+            else
+            {
+                return 60.00 - NotaFinal();
+            }
+        }
+    }
+}
+
+
+using System;
+using System.Globalization;
+
+namespace Class_Aluno
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Aluno al = new Aluno();
+
+            Console.Write("Nome do aluno: ");
+            al.Nome = Console.ReadLine();
+            Console.WriteLine("Digite as três notas do aluno: ");
+            al.Nota1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            al.Nota2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            al.Nota3 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            Console.WriteLine("NOTA FINAL = " + al.NotaFinal().ToString("F2", CultureInfo.InvariantCulture));
+
+            if (al.Aprovado())
+            {
+                Console.WriteLine("APROVADO");
+            }
+            else
+            {
+                Console.WriteLine("REPROVADO");
+            }
+                Console.WriteLine("FALTAM " + al.NotaRestante().ToString("F2", CultureInfo.InvariantCulture) + "PONTOS");
+        }
+    }
+}
